@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!--Favicon-->
-    <link rel="icon" href="" />
+    <link rel="icon" href="./assets/svg/favicon.svg" />
 
     <!--CSS-->
     <link rel="stylesheet" href="style.css" />
@@ -28,8 +28,38 @@
   </head>
   <body>
     <header>
-      <!--Logo-->
-      <!--Barre de recherche-->
+      <div class="container-fluid p-3 pb-2">
+        <!--logo-->
+        <div class="row align-items-center">
+          <div class="col text-sm-center">
+            <img
+              id="logo"
+              src="assets/logo.png"
+              alt="logo en forme de charlotte de cuisinier"
+            />
+          </div>
+          <h1>Les petits plats</h1>
+        </div>
+        <form id="search" method="get" class="form py-3 m-0">
+          <!--Barre de recherche-->
+          <div id="searchBar" class="py-3">
+            <input
+              type="text"
+              class="form-control px-4 border-0"
+              placeholder="Rechercher un ingrédient"
+              name="search"
+              id="recherche"
+            />
+            <label id="loupe" for="recherche">
+              <img
+                src="assets/svg/loupe.svg"
+                alt="loupe pour rechercher un ingredient"
+              />
+            </label>
+          </div>
+        </form>
+      </div>
+
       <!--choix-->
       <!--choix des ingredients-->
       <!--choix des appareils-->

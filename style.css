@@ -1,0 +1,56 @@
+/**Font lato et roboto**/
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Lato:wght@400;700&family=Roboto&display=swap");
+
+/*font-family: 'DM Sans', sans-serif;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Roboto', sans-serif;*/
+:root{
+   --body-font-family: 'Lato', sans-serif;
+   --text-font-description:'Roboto', sans-serif;
+   --body-font-size: 18px;
+   --text-recettes-font-size:12px;
+   --titre-size:36px;
+   --bg-color-ingredients: #3282F7;
+   --bg-color-appareils:#68D9A4;
+   --bg-color-ustensiles:#ED6454;
+   --bg-color-zone-recherche:#E7E7E7;
+   --bg-color-zone-img:#C7BEBE;
+   --bg-color-zone-recettes:#E7E7E7;
+   --text-color-choix:#FFFFFF;
+   --text-color-body:#000000;
+   --text-color-titre:#D04F4F;
+}
+ body{
+     margin: 0;
+     background-color: #E5E5E5;
+     font-size: var(--body-font-size);
+     font-family: var(--body-font-family);
+     color: var(--text-color-body);
+ } 
+
+ 
+ h1{
+     font-size: var(--titre-size);
+     color: var(--text-color-titre);
+     font-family:'DM Sans', sans-serif;
+     text-align: center;     
+ }
+
+ #searchBar{
+    position: relative;
+ }
+
+ #recherche{
+     font-family: var(--bg-color-zone-recherche);
+     font-weight: 400;
+     background-color: var(--bg-color-zone-recherche);
+ }
+
+ #loupe{
+    position: absolute;
+    font-weight: bold;
+    z-index: 10;
+    cursor: pointer;
+    top: 21px;
+    right: 14px;
+ }
