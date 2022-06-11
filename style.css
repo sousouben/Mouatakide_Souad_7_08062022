@@ -4,6 +4,7 @@
 /*font-family: 'DM Sans', sans-serif;
     font-family: 'Lato', sans-serif;
     font-family: 'Roboto', sans-serif;*/
+    
 :root{
    --body-font-family: 'Lato', sans-serif;
    --text-font-description:'Roboto', sans-serif;
@@ -20,14 +21,22 @@
    --text-color-body:#000000;
    --text-color-titre:#D04F4F;
 }
- body{
-     margin: 0;
-     background-color: #E5E5E5;
-     font-size: var(--body-font-size);
-     font-family: var(--body-font-family);
-     color: var(--text-color-body);
- } 
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family:var(--body-font-family);
+    font-size:var(--body-font-size);
+    color: var(--text-color-body);
+    background-color: #E5E5E5;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
  
  h1{
      font-size: var(--titre-size);
@@ -37,7 +46,7 @@
  }
 
  #searchBar{
-    position: relative;
+    position: relative;    
  }
 
  #recherche{
@@ -53,4 +62,8 @@
     cursor: pointer;
     top: 21px;
     right: 14px;
+ }
+
+ #ingredients-filter,#appliance-filter,#ustensils-filter{
+     color: white;
  }
