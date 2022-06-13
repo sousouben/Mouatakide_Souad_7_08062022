@@ -61,9 +61,10 @@ ustensilsFilter.addEventListener("click", (e) => {
 //Lorsque l'utilisateur clique sur le champ de saisie, la liste des options apparaît et le chevron tourne
 
 function displayList(listgroup, input, chevron){
-  listgroup.style.display = "block";
+  listgroup.style.display = "block";  
+  listgroup.style.height = "397px";
+  listgroup.style.width = "667px";
   input.style.width = "667px";
-  input.style.height = "397px"
   chevron.style.transform = "rotate(180deg)";
 }
 
@@ -76,6 +77,20 @@ function masqueList(listGroup, input, chevron){
   input.value = "";
 }
 
+//Cette fonction filtre les recettes par ingrédients, appareils et ustensiles, puis crée une liste des recettes, une liste de tag, une liste d'ingrédients, une liste d'appareils et une liste d'ustensiles.
+function init(recipes) {
+  const recipesBySearch = principalRecipesFilter(recipes);
+  const recipesByIngredients = filterRecipesByIngredients(recipesBySearch);
+  const recipesByAppliances = filterRecipesByAppliances(recipesByIngredients);
+  const recipesByUstensils = filterRecipesByUstensils(recipesByAppliances);
+
+  createRecipesList(recipesByUstensils);
+  createTag();
+  displayIngredientsList(recipesByUstensils);
+  displayAppliancesList(recipesByUstensils);
+  displayUstensilsList(recipesByUstensils);
+}
+
 //Récupération ressources JSON grace au fetch
 async function getRecipes() { 
   const res = await fetch("data/recipes.json");
@@ -85,6 +100,81 @@ async function getRecipes() {
     ...recipes
   ]
   console.log(recipesArray.length);//permet de parcourir le tableau et de connaitre le nombre de recettes (50 recettes)
+
+  createRecipesList(recipes);
 }
 getRecipes();
+
+//fonction pour afficher les cartes de recettes 
+function createRecipesList(recipes) {
+  recipesContainer.innerHTML = "";
+  recipes.map((recipe) => {
+    recipesContainer.appendChild(new RecipesCard(recipe).buildCard());
+  });
+}
+
+//Il prend les données du fichier JSON et crée trois tableaux : ingredientsArray, appliancesArray et ustensilesArray. Ensuite, il crée trois listes : ingredientsList, appliancesList et ustensilsList.
+
+const creatAllLists = async() =>{
+  await getRecipes();
+
+  recipesArray.forEach((recipe)=>{
+    recipe.ingredients.map((element)=>{
+      ingredientsArray.push(element.ingredient);
+      console.log(ingredientsArray);
+    });
+    appliancesArray.push(recipe.appliance);
+    console.log(appliancesArray);
+    recipe.ustensils.map((element) => {
+      ustensilsArray.push(element);
+      console.log(ustensilsArray);
+    });
+  });
+
+  ingredientsArray = [...new Set(ingredientsArray)].sort();
+  appliancesArray = [...new Set(appliancesArray)].sort();
+  ustensilsArray = [...new Set(ustensilsArray)].sort();
+
+  console.log(ingredientsArray);
+
+  creatListIngredients(ingredientsArray);
+  creatListAppliances(appliancesArray);
+  creatListUstensils(ustensilsArray);
+
+};
+creatAllLists();
+
+//Il crée une liste d'ingrédients à partir d'un tableau d'ingrédients.
+
+function creatListIngredients(ingredients){
+  allListIngredients.innerHTML="";
+  ingredients.forEach((ingredient)=>{
+    allListIngredients.appendChild(new CreatListIngredients(ingredient).buildListIngredients());
+  });
+  ingredientsArray =Array.from(document.querySelectorAll(".ingredient-item"));
+  ingredientsArray = [...new Set(ingredientsArray)].sort();
+  console.log(ingredientsArray);  
+}
+
+function creatListAppliances(appliances){
+  allListAppliances.innerHTML ="";
+  appliances.forEach((appliance)=>{
+    allListAppliances.appendChild(new CreatListAppliances(appliance).buildListAppliance());
+  });
+  appliancesArray =Array.from(document.querySelectorAll(".appliance-item"));
+  appliancesArray = [...new Set(appliancesArray)].sort();
+  console.log(appliancesArray);  
+}
+
+function creatListUstensils(ustensils) {
+  allListUstensils.innerHTML = "";
+  ustensils.forEach((ustensil) => {
+    allListUstensils.appendChild(
+      new CreatListUstensils(ustensil).buildListUstensil()
+    );
+  });
+  ustensilsArray = Array.from(document.querySelectorAll(".ustensil-item"));
+  ustensilsArray = [...new Set(ustensilsArray)].sort();
+  console.log(ustensilsArray);
+}
 

@@ -35,7 +35,7 @@ class RecipesCard{
                     <div class="time col-4 d-flex flex-row align-items-center justify-content-end">
                         <p class="mr-2 minutes">
                             <span class="me-2">
-                            <img  src="assets/time.svg" alt="">
+                            <img  src="assets/svg/time.svg" alt="">
                             </span>${this.time} min
                         </p>
                     </div>

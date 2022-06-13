@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-class creatListIngredients {
+class CreatListIngredients {
   constructor(ingredient) {
     this.ingredient = ingredient;
   }
@@ -20,9 +20,9 @@ class creatListIngredients {
 
     return allListIngredients;
   }
-}console.log(creatListIngredients);
+}console.log(CreatListIngredients);
 
-class creatListAppliances {
+class CreatListAppliances {
   constructor(appliance) {
     this.appliance = appliance;
   }
@@ -34,18 +34,18 @@ class creatListAppliances {
       "col-4",
       "col-sm-6",
       "col-md-4",
-      "ingredient-item"
+      "appliance-item"
     );
     allListAppliances.setAttribute("data-color", "bg-success");
     allListAppliances.setAttribute("data-item", this.appliance);
-    allListAppliances.setAttribute("data-type", "ingredient");
+    allListAppliances.setAttribute("data-type", "appliance");
     allListAppliances.innerHTML = this.appliance;
 
     return allListAppliances;
   }
-}console.log(creatListAppliances);
+}console.log(CreatListAppliances);
 
-class creatListUstensils {
+class CreatListUstensils {
   constructor(ustensil) {
     this.ustensil = ustensil;
   }
@@ -57,13 +57,13 @@ class creatListUstensils {
       "col-4",
       "col-sm-6",
       "col-md-4",
-      "ingredient-item"
+      "ustensil-item"
     );
     allListUstensils.setAttribute("data-color", "bg-danger");
     allListUstensils.setAttribute("data-item", this.ustensil);
-    allListUstensils.setAttribute("data-type", "ingredient");
+    allListUstensils.setAttribute("data-type", "ustensil");
     allListUstensils.innerHTML = this.ustensil;
 
     return allListUstensils;
   }
-}console.log(creatListUstensils);
+}console.log(CreatListUstensils);

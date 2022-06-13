@@ -86,3 +86,39 @@ input {
   left: 145px;
 }
 
+.ingredient-item,
+.appliance-item,
+.ustensil-item{
+  color: white;
+}
+
+.recipe ul{
+  list-style-type: none;
+  font-size: var(--text-recettes-font-size);
+}
+
+.card-body {
+  background-color: #e7e7e7;
+  overflow: hidden;
+  height: 200px;
+}
+
+.card-img-top {
+  background-color: #C7BEBE;
+  border: none;
+  height: 178px;
+  object-fit: cover;
+  width: 100%;
+}
+
+h2{
+  font-size: var(--body-font-size);
+}
+
+.card-text{
+  font-size: var(--text-recettes-font-size);
+}
+
+.mr-2{
+  font-size: var(--body-font-size);
+}
