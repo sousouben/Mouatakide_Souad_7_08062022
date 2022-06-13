@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 class creatListIngredients{
     constructor(ingredient){
         this.ingredient = ingredient;
