@@ -56,7 +56,12 @@
 
           <!-- zones de recherches-->
           <div id="filters">
+            <div id="selectedTag"
+              class="row rounded col-auto col-lg-2 col-sm-3">
+              <ul class="m-0 p-0 d-flex flex-wrap flex-row selectedTag"></ul>
+            </div>
             <div class="form-group ml-3 ml-md-5">
+              
               <!--ingredients-->
               <div class="input-goup rounded">
                 <div class="IngredientInput opened-container">
@@ -75,6 +80,11 @@
                     />
                   </div>
                 </div>
+                <ul
+                  id="ingredientsList"
+                  data-target="ingredients"
+                  class="bg-primary list-group m-0 p-1 pt-0 list-unstyled fs-6"
+                ></ul>
               </div>
 
               <!---appareils-->
@@ -95,6 +105,11 @@
                     />
                   </div>
                 </div>
+                <ul
+                  id="appliancesList"
+                  data-target="appliances"
+                  class="bg-success list-group row flex-wrap m-0 p-1 pt-0 list-unstyled fs-6"
+                ></ul>
               </div>
 
               <!--ustensiles-->
@@ -115,18 +130,25 @@
                     />
                   </div>
                 </div>
+                <ul
+                  id="ustensilsList"
+                  data-target="ustensils"
+                  class="bg-danger list-group row flex-wrap m-0 p-1 pt-0 list-unstyled fs-6"
+                ></ul>
               </div>
             </div>
           </div>
         </form>
       </div>
     </header>
+
     <!--cartes de recettes-->
     <main class="container-fluid m-0 p-1 pb-2">
       <div class="row d-flex align-items-center">
         <div id="output" class="row p-0"></div>
       </div>
     </main>
+
     <!--Scripts-->
     <script src="scripts/script.js"></script>
     <script src="scripts/structure/creatCard.js"></script>

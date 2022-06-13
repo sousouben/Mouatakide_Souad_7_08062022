@@ -1,18 +1,69 @@
 /* eslint-disable no-unused-vars */
-class creatListIngredients{
-    constructor(ingredient){
-        this.ingredient = ingredient;
-    }
-}
+class creatListIngredients {
+  constructor(ingredient) {
+    this.ingredient = ingredient;
+  }
 
-class creatListAppliance{
-    constructor(appliance){
-        this.appliance = appliance;
-    }
-}
+  buildListIngredients() {
+    const allListIngredients = document.createElement("li");
+    allListIngredients.classList.add(
+      "list-items",
+      "col-4",
+      "col-sm-6",
+      "col-md-4",
+      "ingredient-item"
+    );
+    allListIngredients.setAttribute("data-color", "bg-primary");
+    allListIngredients.setAttribute("data-item", this.ingredient);
+    allListIngredients.setAttribute("data-type", "ingredient");
+    allListIngredients.innerHTML = this.ingredient;
 
-class creatListUstensils{
-    constructor(ustensil){
-        this.ustensil = ustensil;
-    }
-}
+    return allListIngredients;
+  }
+}console.log(creatListIngredients);
+
+class creatListAppliances {
+  constructor(appliance) {
+    this.appliance = appliance;
+  }
+
+  buildListAppliance() {
+    const allListAppliances = document.createElement("li");
+    allListAppliances.classList.add(
+      "list-items",
+      "col-4",
+      "col-sm-6",
+      "col-md-4",
+      "ingredient-item"
+    );
+    allListAppliances.setAttribute("data-color", "bg-success");
+    allListAppliances.setAttribute("data-item", this.appliance);
+    allListAppliances.setAttribute("data-type", "ingredient");
+    allListAppliances.innerHTML = this.appliance;
+
+    return allListAppliances;
+  }
+}console.log(creatListAppliances);
+
+class creatListUstensils {
+  constructor(ustensil) {
+    this.ustensil = ustensil;
+  }
+
+  buildListUstensil() {
+    const allListUstensils = document.createElement("li");
+    allListUstensils.classList.add(
+      "list-items",
+      "col-4",
+      "col-sm-6",
+      "col-md-4",
+      "ingredient-item"
+    );
+    allListUstensils.setAttribute("data-color", "bg-danger");
+    allListUstensils.setAttribute("data-item", this.ustensil);
+    allListUstensils.setAttribute("data-type", "ingredient");
+    allListUstensils.innerHTML = this.ustensil;
+
+    return allListUstensils;
+  }
+}console.log(creatListUstensils);

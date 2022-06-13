@@ -38,7 +38,7 @@ body {
 
 h1 {
   font-size: var(--titre-size);
-  color: var(--text-color-titre)!important;
+  color: var(--text-color-titre) !important;
   font-family: "DM Sans", sans-serif;
   text-align: center;
 }
@@ -66,22 +66,23 @@ h1 {
   cursor: pointer;
 }
 
-#ingredients-filter, 
-#appliances-filter, 
-#ustensils-filter{
-    width: 170px;
+#ingredients-filter,
+#appliances-filter,
+#ustensils-filter {
+  width: 170px;
 }
 
 input {
   height: 69px;
 }
 
-.opened-container{
+.opened-container {
   display: flex;
   align-items: center;
 }
 
-.chevron{
+.chevron {
   position: absolute;
   left: 145px;
 }
+
