@@ -61,8 +61,7 @@ ustensilsFilter.addEventListener("click", (e) => {
 //Lorsque l'utilisateur clique sur le champ de saisie, la liste des options apparaît et le chevron tourne
 
 function displayList(listgroup, input, chevron){
-  listgroup.style.display = "block";  
-  listgroup.style.height = "397px";
+  listgroup.style.display = "block";
   listgroup.style.width = "667px";
   input.style.width = "667px";
   chevron.style.transform = "rotate(180deg)";

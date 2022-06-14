@@ -43,6 +43,7 @@ h1 {
   text-align: center;
 }
 
+/************barre de recherche*****************/
 #searchBar {
   position: relative;
 }
@@ -66,10 +67,18 @@ h1 {
   cursor: pointer;
 }
 
+/*************zones de recherches****************/
+
 #ingredients-filter,
 #appliances-filter,
 #ustensils-filter {
   width: 170px;
+}
+
+#ingredients-filter::placeholder,
+#appliances-filter::placeholder,
+#ustensils-filter::placeholder{
+color: white;
 }
 
 input {
@@ -77,13 +86,14 @@ input {
 }
 
 .opened-container {
-  display: flex;
-  align-items: center;
+  position: relative;
 }
 
 .chevron {
   position: absolute;
-  left: 145px;
+    right: 1.2rem;
+    top: 20px;
+    cursor: pointer;
 }
 
 .ingredient-item,
@@ -97,6 +107,31 @@ input {
   font-size: var(--text-recettes-font-size);
 }
 
+.list-items {
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.list-group {
+  display: none;
+  max-height: 397px;
+  width: 667px;
+  column-count: 3;
+  overflow-y: auto;
+}
+
+.form-group {
+  padding: 0;
+  max-width: 1440px;
+  gap: 20px;
+  display: inline-flex;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+
+/*******************cartes de recettes*****************************/
 .card-body {
   background-color: #e7e7e7;
   overflow: hidden;
@@ -111,6 +146,11 @@ input {
   width: 100%;
 }
 
+.card {
+  overflow: hidden;
+  height: 100%;
+}
+
 h2{
   font-size: var(--body-font-size);
 }
@@ -119,6 +159,3 @@ h2{
   font-size: var(--text-recettes-font-size);
 }
 
-.mr-2{
-  font-size: var(--body-font-size);
-}

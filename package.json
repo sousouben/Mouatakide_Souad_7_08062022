@@ -1,7 +1,22 @@
 {
-  "dependencies": {
-    "bootstrap": "^5.2.0-beta1"
+  "name": "mouatakide_souad_7_08062022",
+  "version": "1.0.0",
+  "description": "Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.",
+  "main": "index.html",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sousouben/Mouatakide_Souad_7_08062022.git"
+  },
+  "author": "mouatakide souad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sousouben/Mouatakide_Souad_7_08062022/issues"
+  },
+  "homepage": "https://github.com/sousouben/Mouatakide_Souad_7_08062022#readme",
   "devDependencies": {
     "eslint": "^8.17.0"
   }
