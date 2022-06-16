@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-vars */
 
 /**************DOM****************/
+
 //zones de recherches
 const tags = document.querySelector(".selectedTag");
 
@@ -34,29 +35,56 @@ let selectedIngredients = []; //tableau des ingredients selectionnés
 let selectedAppliances = []; // tableau des appareils selectionnés
 let selectedUstensils = []; // tableau des ustensils selectionnés
 
+let isIngredientFilterOpen = false;
+let isAppliancesFilterOpen = false;
+let isUstensilsFilterOpen = false;
+
+
 //ECOUTEUR D'EVENEMENT avec addEventListener(click)
 ingredientsFilter.addEventListener("click", (e) => {
   e.preventDefault();
-  //console.log("test");
-  displayList(allListIngredients, ingredientsFilter, ingredientsChevron);
-  masqueList(allListAppliances, appliancesFilter, appliancesChevron);
-  masqueList(allListUstensils, ustensilsFilter, ustensilsChevron);
+  isIngredientFilterOpen = !isIngredientFilterOpen;
+  if(isIngredientFilterOpen){
+    displayList(allListIngredients, ingredientsFilter, ingredientsChevron);
+    masqueList(allListAppliances, appliancesFilter, appliancesChevron);
+    masqueList(allListUstensils, ustensilsFilter, ustensilsChevron);
+  }else{
+    masqueList(allListIngredients, ingredientsFilter, ingredientsChevron);
+    masqueList(allListAppliances, appliancesFilter, appliancesChevron);
+    masqueList(allListUstensils, ustensilsFilter, ustensilsChevron);
+  }
+  
 });
 
 appliancesFilter.addEventListener("click", (e) => {
   e.preventDefault();
-  displayList(allListAppliances, appliancesFilter, appliancesChevron);
+  isAppliancesFilterOpen = !isAppliancesFilterOpen;
+  if(isAppliancesFilterOpen){
+    displayList(allListAppliances, appliancesFilter, appliancesChevron);
   masqueList(allListIngredients, ingredientsFilter, ingredientsChevron);
   masqueList(allListUstensils, ustensilsFilter, ustensilsChevron);
+  }else{
+    masqueList(allListAppliances, appliancesFilter, appliancesChevron);
+    masqueList(allListIngredients, ingredientsFilter, ingredientsChevron);
+    masqueList(allListUstensils, ustensilsFilter, ustensilsChevron);
+  }
+  
 });
 
 ustensilsFilter.addEventListener("click", (e) => {
   e.preventDefault();
+  isUstensilsFilterOpen = !isUstensilsFilterOpen;
+  if(isUstensilsFilterOpen){
   displayList(allListUstensils, ustensilsFilter, ustensilsChevron);
   masqueList(allListAppliances, appliancesFilter, appliancesChevron);
   masqueList(allListIngredients, ingredientsFilter, ingredientsChevron);
-
+  }else{
+  masqueList(allListUstensils, ustensilsFilter, ustensilsChevron);
+  masqueList(allListAppliances, appliancesFilter, appliancesChevron);
+  masqueList(allListIngredients, ingredientsFilter, ingredientsChevron);
+  }
 });
+
 
 //Lorsque l'utilisateur clique sur le champ de saisie, la liste des options apparaît et le chevron tourne
 

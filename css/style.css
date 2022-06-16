@@ -36,11 +36,10 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-h1 {
-  font-size: var(--titre-size);
-  color: var(--text-color-titre) !important;
-  font-family: "DM Sans", sans-serif;
-  text-align: center;
+#logo {
+  width: 260px;
+  height: 93px;
+  margin: 0 auto;
 }
 
 /************barre de recherche*****************/
@@ -77,8 +76,8 @@ h1 {
 
 #ingredients-filter::placeholder,
 #appliances-filter::placeholder,
-#ustensils-filter::placeholder{
-color: white;
+#ustensils-filter::placeholder {
+  color: white;
 }
 
 input {
@@ -91,18 +90,18 @@ input {
 
 .chevron {
   position: absolute;
-    right: 1.2rem;
-    top: 20px;
-    cursor: pointer;
+  right: 1.2rem;
+  top: 20px;
+  cursor: pointer;
 }
 
 .ingredient-item,
 .appliance-item,
-.ustensil-item{
+.ustensil-item {
   color: white;
 }
 
-.recipe ul{
+.recipe ul {
   list-style-type: none;
   font-size: var(--text-recettes-font-size);
 }
@@ -130,7 +129,6 @@ input {
   z-index: 1;
 }
 
-
 /*******************cartes de recettes*****************************/
 .card-body {
   background-color: #e7e7e7;
@@ -139,7 +137,7 @@ input {
 }
 
 .card-img-top {
-  background-color: #C7BEBE;
+  background-color: #c7bebe;
   border: none;
   height: 178px;
   object-fit: cover;
@@ -151,11 +149,10 @@ input {
   height: 100%;
 }
 
-h2{
+h2 {
   font-size: var(--body-font-size);
 }
 
-.card-text{
+.card-text {
   font-size: var(--text-recettes-font-size);
 }
-
