@@ -181,6 +181,21 @@ function creatListIngredients(ingredients){
   ingredientsArray =Array.from(document.querySelectorAll(".ingredient-item"));
   ingredientsArray = [...new Set(ingredientsArray)].sort();
   console.log(ingredientsArray);  
+
+  ingredientsArray.forEach((item) => {
+    item.addEventListener("click", () => {
+      selectedIngredients.push(
+        item.dataset.item.toLowerCase().replace(/\s/g, "")
+      );
+       console.log(selectedIngredients);
+       if (!inSelectedTags(item.dataset.item)) selectedTags.push(item); // empeche l'affichage en double du tag
+       console.log(selectedTags);
+       masqueList(allListIngredients, ingredientsFilter, ingredientsChevron);
+       ingredientsFilter.value = "";
+ 
+       init(recipesArray);
+     });
+   });
 }
 
 function creatListAppliances(appliances){
@@ -191,6 +206,21 @@ function creatListAppliances(appliances){
   appliancesArray =Array.from(document.querySelectorAll(".appliance-item"));
   appliancesArray = [...new Set(appliancesArray)].sort();
   console.log(appliancesArray);  
+
+  appliancesArray.forEach((item) => {
+    item.addEventListener("click", () => {
+      selectedAppliances.push(
+        item.dataset.item.toLowerCase().replace(/\s/g, "")
+      );
+       console.log(selectedAppliances);
+       if (!inSelectedTags(item.dataset.item)) selectedTags.push(item); // empeche l'affichage en double du tag
+       
+       masqueList(allListAppliances, appliancesFilter, appliancesChevron);
+       appliancesFilter.value = "";
+ 
+       init(recipesArray);
+     });
+   });
 }
 
 function creatListUstensils(ustensils) {
@@ -203,5 +233,115 @@ function creatListUstensils(ustensils) {
   ustensilsArray = Array.from(document.querySelectorAll(".ustensil-item"));
   ustensilsArray = [...new Set(ustensilsArray)].sort();
   console.log(ustensilsArray);
+
+  ustensilsArray.forEach((item) => {
+    item.addEventListener("click", () => {
+      selectedUstensils.push(
+        item.dataset.item.toLowerCase().replace(/\s/g, "")
+      );
+       console.log(selectedUstensils);
+       if (!inSelectedTags(item.dataset.item)) selectedTags.push(item); // empeche l'affichage en double du tag
+       console.log(selectedTags);
+       masqueList(allListUstensils, ustensilsFilter, ustensilsChevron);
+       ustensilsFilter.value = "";
+ 
+       init(recipesArray);
+     });
+   });
 }
 
+function inSelectedTags(item_name) {
+  var result = false;
+  selectedTags.forEach((item) => {
+    result = result || item.dataset.item === item_name;
+  });
+  return result;
+}
+
+function createTag() {
+  tags.innerHTML = "";
+  selectedTags.forEach((tag) => {
+    console.log(selectedTags);
+
+    const tagLi = document.createElement("li");
+    const tagColor = tag.dataset.color;
+    const tagName = tag.dataset.item;
+    const tagType = tag.dataset.type;
+
+    tagLi.classList.add(
+      `${tagColor}`,
+      "newTag",
+      "mb-1",
+      "me-2",
+      `bg-${tagColor}`,
+      "px-3",
+      "py-2",
+      "pe-5",
+      "d-flex",
+      "flex-row",
+      "align-items-center",
+      "rounded"
+    );
+
+    tagLi.innerHTML = `${tagName}
+  <img id="close" src="assets/close-croix.svg" alt="croix pour fermer le tag"
+/>`;
+    tagLi.setAttribute("data-item", tagName);
+    tagLi.setAttribute("data-type", tagType);
+    tags.appendChild(tagLi);
+    //console.log(tagLi);
+    let tagClose = document.querySelectorAll("#close");
+    //console.log(tagClose);
+    tagClose.forEach((tag) => tag.addEventListener("click", closeTag));
+
+    return tagLi;
+  });
+}
+
+function filterRecipesByIngredients(recipesToFilter) {
+  //Filtre les recettes selon les ingrédients choisis
+  let selectedRecipesByIngredients = recipesToFilter;
+
+  selectedIngredients.forEach((item) => {
+    selectedRecipesByIngredients = selectedRecipesByIngredients.filter(
+      (recipe) =>
+        recipe.ingredients.find((elt) =>
+          // console.log(item, elt.ingredient);
+          elt.ingredient.toLowerCase().replace(/\s/g, "").includes(item)
+        )
+    );
+    console.log(selectedRecipesByIngredients);
+  });
+
+  return selectedRecipesByIngredients;
+}
+
+function filterRecipesByAppliances(recipesToFilter) {
+  //Filtre les recettes filtrées par ingrédients, selon l’appareil choisi
+
+  let selectedRecipesByAppliances = recipesToFilter;
+
+  selectedAppliances.forEach((item) => {
+    //console.log(item);
+    selectedRecipesByAppliances = selectedRecipesByAppliances.filter(
+      (recipe) =>
+        recipe.appliance.toLowerCase().replace(/\s/g, "").includes(item)
+      //console.log(recipe.appliance);
+    );
+  });
+  return selectedRecipesByAppliances;
+}
+
+function filterRecipesByUstensils(recipesToFilter) {
+  //Filtre les recettes filtrées par appareils, selon les ustensiles choisis
+  let selectedRecipesByUstensils = recipesToFilter;
+
+  selectedUstensils.forEach((item) => {
+    selectedRecipesByUstensils = selectedRecipesByUstensils.filter((recipe) =>
+      recipe.ustensils.find((elt) =>
+        elt.toLowerCase().replace(/\s/g, "").includes(item)
+      )
+    );
+  });
+  return selectedRecipesByUstensils;
+}
