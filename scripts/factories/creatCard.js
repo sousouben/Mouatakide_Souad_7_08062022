@@ -60,4 +60,4 @@ class RecipesCard{
     
         return card;
       }
-}console.log(RecipesCard);
+}//console.log(RecipesCard);
