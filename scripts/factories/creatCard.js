@@ -33,52 +33,51 @@ class RecipesCard {
     cardBody.className = "card-body py-0";
     card.appendChild(cardBody);
 
-    let recipeInfo = document.createElement('div');
-  recipeInfo.className = 'receipTitle d-flex flex-row mt-2 mb-2 gap-2 justify-content-between align-items-center';
-  cardBody.appendChild(recipeInfo);
+    let recipeInfo = document.createElement("div");
+    recipeInfo.className =
+      "receipTitle d-flex flex-row mt-2 mb-2 gap-2 justify-content-between align-items-center";
+    cardBody.appendChild(recipeInfo);
 
-  let cardTitle = document.createElement('h2');
-  cardTitle.className = 'card-title col mt-0';
-  cardTitle.textContent = `${this.name}`;
-  recipeInfo.appendChild(cardTitle);
+    let cardTitle = document.createElement("h2");
+    cardTitle.className = "card-title col m-0";
+    cardTitle.textContent = `${this.name}`;
+    recipeInfo.appendChild(cardTitle);
 
-  let timeIcon = document.createElement('div');
-  timeIcon.className = 'time col-4 d-flex flex-row align-items-center justify-content-end';
-  recipeInfo.appendChild(timeIcon);
+    let timeIcon = document.createElement("div");
+    timeIcon.className =
+      "time col-4 d-flex flex-row align-items-center justify-content-end";
+    recipeInfo.appendChild(timeIcon);
 
-  let recipeIconAndTime = document.createElement('span')
-  recipeIconAndTime.className = 'mr-2 minutes';
+    let recipeIconAndTime = document.createElement("p");
+    recipeIconAndTime.className = "m-0 minutes";
+    timeIcon.appendChild(recipeIconAndTime);
 
-  let icon = document.createElement('i');
-  icon.className = 'far fa-clock';
-  recipeIconAndTime.appendChild(icon);
-  recipeIconAndTime.textContent = `${this.time}`+'min';
+    recipeIconAndTime.innerHTML = `<span class="me-2">
+  <img  src="assets/svg/time.svg" alt="image d'une horloge pour le temps de préparation">
+  </span>${this.time} min`;
 
-  timeIcon.appendChild(recipeIconAndTime);
+    let recipeInfoSecond = document.createElement("div");
+    recipeInfoSecond.className =
+      "recipe d-flex flex-row justify-content-between gap-1";
+    cardBody.appendChild(recipeInfoSecond);
 
-  let recipeInfoSecond = document.createElement('div');
-  recipeInfoSecond.className = 'recipe d-flex flex-row justify-content-between gap-1';
-
-  cardBody.appendChild(recipeInfoSecond);
-
-  recipeInfoSecond.innerHTML = `<ul class="ingredient-container col-5 mb-0">${this.ingredients
-    .map(
-      (element) =>
-        `
+    recipeInfoSecond.innerHTML = `<ul class="ingredient-container col-5 mt-2">${this.ingredients
+      .map(
+        (element) =>
+          `
   <li>
       <strong>${element.ingredient} :</strong> ${
-          "quantity" in element ? element.quantity : ""
-        } ${"unit" in element ? element.unit : ""}
+            "quantity" in element ? element.quantity : ""
+          } ${"unit" in element ? element.unit : ""}
   `
-    )
-    .join("")}</li>
-  </ul>`
+      )
+      .join("")}</li>
+  </ul>`;
 
-  let etape = document.createElement('p');
-  etape.className = 'card-text col-7 m-0';
-  etape.textContent = `${this.description}`;
-
-  recipeInfoSecond.appendChild(etape);
+    let etape = document.createElement("p");
+    etape.className = "card-text col-7 mt-2";
+    etape.textContent = `${this.description}`;
+    recipeInfoSecond.appendChild(etape);
     return card;
   }
 } //console.log(RecipesCard);

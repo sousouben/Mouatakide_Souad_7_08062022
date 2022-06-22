@@ -7,12 +7,11 @@
 const tags = document.querySelector(".selectedTag");
 
 //INPUTS
-const barreSearch = document.querySelector("#recherche")
-const ingredientsFilter = document.querySelector("#ingredients-filter"); 
+const barreSearch = document.querySelector("#recherche");
+const ingredientsFilter = document.querySelector("#ingredients-filter");
 const appliancesFilter = document.querySelector("#appliances-filter");
 const ustensilsFilter = document.querySelector("#ustensils-filter");
 const principalSearch = document.querySelector("#recherche");
-
 
 //CHEVRONS
 const ingredientsChevron = document.querySelector(".ingredientsChevron");
@@ -28,10 +27,10 @@ const allListUstensils = document.querySelector("#ustensilsList");
 const recipesContainer = document.querySelector("#output");
 
 //ARRAY[]
-let recipesArray = [];//toutes les recettes
-let ingredientsArray = [];//tous les ingredients
-let appliancesArray = [];//tous les appareils
-let ustensilsArray = [];//tous les ustensiles
+let recipesArray = []; //toutes les recettes
+let ingredientsArray = []; //tous les ingredients
+let appliancesArray = []; //tous les appareils
+let ustensilsArray = []; //tous les ustensiles
 let selectedTags = []; //tableau de tags selectionnés
 let selectedIngredients = []; //tableau des ingredients selectionnés
 let selectedAppliances = []; // tableau des appareils selectionnés
@@ -39,61 +38,56 @@ let selectedUstensils = []; // tableau des ustensils selectionnés
 let principalRecipeSearchValue = ""; // requête principe de recherche de recettes
 let selectedRecipes = []; // tableau des recettes selectionnée par la recherche principale
 
-
 let isIngredientFilterOpen = false;
 let isAppliancesFilterOpen = false;
 let isUstensilsFilterOpen = false;
-
 
 //ECOUTEUR D'EVENEMENT avec addEventListener(click)
 ingredientsFilter.addEventListener("click", (e) => {
   e.preventDefault();
   isIngredientFilterOpen = !isIngredientFilterOpen;
-  if(isIngredientFilterOpen){
+  if (isIngredientFilterOpen) {
     displayList(allListIngredients, ingredientsFilter, ingredientsChevron);
     masqueList(allListAppliances, appliancesFilter, appliancesChevron);
     masqueList(allListUstensils, ustensilsFilter, ustensilsChevron);
-  }else{
+  } else {
     masqueList(allListIngredients, ingredientsFilter, ingredientsChevron);
     masqueList(allListAppliances, appliancesFilter, appliancesChevron);
     masqueList(allListUstensils, ustensilsFilter, ustensilsChevron);
   }
-  
 });
 
 appliancesFilter.addEventListener("click", (e) => {
   e.preventDefault();
   isAppliancesFilterOpen = !isAppliancesFilterOpen;
-  if(isAppliancesFilterOpen){
+  if (isAppliancesFilterOpen) {
     displayList(allListAppliances, appliancesFilter, appliancesChevron);
-  masqueList(allListIngredients, ingredientsFilter, ingredientsChevron);
-  masqueList(allListUstensils, ustensilsFilter, ustensilsChevron);
-  }else{
+    masqueList(allListIngredients, ingredientsFilter, ingredientsChevron);
+    masqueList(allListUstensils, ustensilsFilter, ustensilsChevron);
+  } else {
     masqueList(allListAppliances, appliancesFilter, appliancesChevron);
     masqueList(allListIngredients, ingredientsFilter, ingredientsChevron);
     masqueList(allListUstensils, ustensilsFilter, ustensilsChevron);
   }
-  
 });
 
 ustensilsFilter.addEventListener("click", (e) => {
   e.preventDefault();
   isUstensilsFilterOpen = !isUstensilsFilterOpen;
-  if(isUstensilsFilterOpen){
-  displayList(allListUstensils, ustensilsFilter, ustensilsChevron);
-  masqueList(allListAppliances, appliancesFilter, appliancesChevron);
-  masqueList(allListIngredients, ingredientsFilter, ingredientsChevron);
-  }else{
-  masqueList(allListUstensils, ustensilsFilter, ustensilsChevron);
-  masqueList(allListAppliances, appliancesFilter, appliancesChevron);
-  masqueList(allListIngredients, ingredientsFilter, ingredientsChevron);
+  if (isUstensilsFilterOpen) {
+    displayList(allListUstensils, ustensilsFilter, ustensilsChevron);
+    masqueList(allListAppliances, appliancesFilter, appliancesChevron);
+    masqueList(allListIngredients, ingredientsFilter, ingredientsChevron);
+  } else {
+    masqueList(allListUstensils, ustensilsFilter, ustensilsChevron);
+    masqueList(allListAppliances, appliancesFilter, appliancesChevron);
+    masqueList(allListIngredients, ingredientsFilter, ingredientsChevron);
   }
 });
 
-
 //Lorsque l'utilisateur clique sur le champ de saisie, la liste des options apparaît et le chevron tourne
 
-function displayList(listgroup, input, chevron){
+function displayList(listgroup, input, chevron) {
   listgroup.style.display = "block";
   listgroup.style.width = "667px";
   input.style.width = "667px";
@@ -102,7 +96,7 @@ function displayList(listgroup, input, chevron){
 
 //Lorsque l'utilisateur clique sur un champ de saisie, la liste des options apparaît, et lorsque l'utilisateur clique sur un autre champ de saisie, la liste des options disparaît.
 
-function masqueList(listGroup, input, chevron){
+function masqueList(listGroup, input, chevron) {
   listGroup.style.display = "none";
   input.style.width = "207px";
   chevron.style.transform = "none";
@@ -124,20 +118,18 @@ function init(recipes) {
 }
 
 //Récupération ressources JSON grace au fetch
-async function getRecipes() { 
+async function getRecipes() {
   const res = await fetch("data/recipes.json");
   const { recipes } = await res.json();
   recipesArray = recipes;
-  recipesArray = [
-    ...recipes
-  ]
-  console.log(recipesArray.length);//permet de parcourir le tableau et de connaitre le nombre de recettes (50 recettes)
+  recipesArray = [...recipes];
+  console.log(recipesArray.length); //permet de parcourir le tableau et de connaitre le nombre de recettes (50 recettes)
 
   createRecipesList(recipes);
 }
 getRecipes();
 
-//fonction pour afficher les cartes de recettes 
+//fonction pour afficher les cartes de recettes
 function createRecipesList(recipes) {
   recipesContainer.innerHTML = "";
   recipes.map((recipe) => {
@@ -147,11 +139,11 @@ function createRecipesList(recipes) {
 
 //Il prend les données du fichier JSON et crée trois tableaux : ingredientsArray, appliancesArray et ustensilesArray. Ensuite, il crée trois listes : ingredientsList, appliancesList et ustensilsList.
 
-const creatAllLists = async() =>{
+const creatAllLists = async () => {
   await getRecipes();
 
-  recipesArray.forEach((recipe)=>{
-    recipe.ingredients.map((element)=>{
+  recipesArray.forEach((recipe) => {
+    recipe.ingredients.map((element) => {
       ingredientsArray.push(element.ingredient);
       //console.log(ingredientsArray);
     });
@@ -172,20 +164,20 @@ const creatAllLists = async() =>{
   creatListIngredients(ingredientsArray);
   creatListAppliances(appliancesArray);
   creatListUstensils(ustensilsArray);
-
 };
 creatAllLists();
 
-//Il crée une liste d'ingrédients à partir d'un tableau d'ingrédients.
-
-function creatListIngredients(ingredients){
-  allListIngredients.innerHTML="";
-  ingredients.forEach((ingredient)=>{
-    allListIngredients.appendChild(new CreatListIngredients(ingredient).buildListIngredients());
+//Elle crée une liste d'ingrédients à partir d'un tableau d'ingrédients.
+function creatListIngredients(ingredients) {
+  allListIngredients.innerHTML = "";
+  ingredients.forEach((ingredient) => {
+    allListIngredients.appendChild(
+      new CreatListIngredients(ingredient).buildListIngredients()
+    );
   });
-  ingredientsArray =Array.from(document.querySelectorAll(".ingredient-item"));
+  ingredientsArray = Array.from(document.querySelectorAll(".ingredient-item"));
   ingredientsArray = [...new Set(ingredientsArray)].sort();
-  //console.log(ingredientsArray);  
+  //console.log(ingredientsArray);
 
   ingredientsArray.forEach((item) => {
     item.addEventListener("click", () => {
@@ -203,14 +195,18 @@ function creatListIngredients(ingredients){
   });
 }
 
-function creatListAppliances(appliances){
-  allListAppliances.innerHTML ="";
-  appliances.forEach((appliance)=>{
-    allListAppliances.appendChild(new CreatListAppliances(appliance).buildListAppliance());
+//Elle crée une liste d'appareils, et lorsque vous cliquez sur l'un d'eux, elle l'ajoute à un tableau d'appareils
+
+function creatListAppliances(appliances) {
+  allListAppliances.innerHTML = "";
+  appliances.forEach((appliance) => {
+    allListAppliances.appendChild(
+      new CreatListAppliances(appliance).buildListAppliance()
+    );
   });
-  appliancesArray =Array.from(document.querySelectorAll(".appliance-item"));
+  appliancesArray = Array.from(document.querySelectorAll(".appliance-item"));
   appliancesArray = [...new Set(appliancesArray)].sort();
-  console.log(appliancesArray);  
+  console.log(appliancesArray);
 
   appliancesArray.forEach((item) => {
     item.addEventListener("click", () => {
@@ -228,6 +224,7 @@ function creatListAppliances(appliances){
   });
 }
 
+//elle crée une liste d'ustensiles, et lorsque vous cliquez sur l'un d'eux, elle l'ajoute à un Tableau d'ustensiles.
 
 function creatListUstensils(ustensils) {
   allListUstensils.innerHTML = "";
@@ -255,6 +252,9 @@ function creatListUstensils(ustensils) {
   });
 }
 
+//gestion des tags
+//Vérifier si les balises sélectionnées contiennent le nom de l'élément
+//Si l'item_name est dans le tableau selectedTags, renvoie vrai, sinon renvoie faux.
 function inSelectedTags(item_name) {
   let result = false;
   selectedTags.forEach((item) => {
@@ -263,6 +263,7 @@ function inSelectedTags(item_name) {
   return result;
 }
 
+//Elle crée une nouvelle balise pour chaque élément du tableau selectedTags.
 function createTag() {
   tags.innerHTML = "";
   selectedTags.forEach((tag) => {
@@ -302,6 +303,7 @@ function createTag() {
     return tagLi;
   });
 }
+ //Elle supprime la balise du DOM, puis supprime la balise de la liste des balises sélectionnées.
 
 function closeTag(e) {
   let element = e.target;
@@ -341,9 +343,15 @@ function closeTag(e) {
   init(recipesArray);
 }
 
+//supprimer item_name de la liste d'objets
+//target_list - la liste des objets dont on souhaite supprimer l'élément et item_name - le nom de l'élément à supprimer
 function removeItemFromObjectList(target_list, item_name) {
   let result = false;
   let item_to_remove = null;
+  // On parcourt la liste des items de target_list (tags selectionnés)
+  // Pour chaque item,"ici tag", si son nom = nom recherché, ici item_name
+  // on l'enregistre dans item_to_remove et on sort de la boucle, break.
+  // sinon on va voir l'item suivant
   for (let item of target_list) {
     result = item.innerHTML === item_name;
     if (result) {
@@ -352,6 +360,8 @@ function removeItemFromObjectList(target_list, item_name) {
       break;
     }
   }
+  //// si item_name a été trouvé, donc item_to_remove n'est pas null
+  // on peut donc le supprimer de target list
   if (item_to_remove) {
     let index = target_list.indexOf(item_to_remove);
     if (index > -1) {
@@ -360,7 +370,10 @@ function removeItemFromObjectList(target_list, item_name) {
   }
   return target_list;
 }
-
+ //supprimer item_name de la liste
+ //Elle prend une liste et un nom d'élément, et renvoie la liste avec l'élément supprimé
+ //target_list - la liste dont on souhaite supprimer l'élément
+ //item_name - Le nom de l'élément qu'on souhaite supprimer de la liste.
 function removeItemFromList(target_list, item_name) {
   let index = target_list.indexOf(item_name.toLowerCase().replace(/\s/g, ""));
   //console.log(index);
@@ -370,6 +383,10 @@ function removeItemFromList(target_list, item_name) {
   //console.log(target_list);
   return target_list;
 }
+
+//gestion des tris par tags
+//Elle filtre les recettes en fonction des ingrédients choisis
+//recipesToFilter - un tableau d'objets (recettes)
 
 function filterRecipesByIngredients(recipesToFilter) {
   //Filtre les recettes selon les ingrédients choisis
@@ -389,8 +406,10 @@ function filterRecipesByIngredients(recipesToFilter) {
   return selectedRecipesByIngredients;
 }
 
+//Elle filtre les recettes filtrées par ingrédients, selon les appareils choisis.
+
 function filterRecipesByAppliances(recipesToFilter) {
-  //Filtre les recettes filtrées par ingrédients, selon l’appareil choisi
+  //Filtre les recettes filtrées par ingrédients, selon les appareils choisis
 
   let selectedRecipesByAppliances = recipesToFilter;
 
@@ -404,6 +423,8 @@ function filterRecipesByAppliances(recipesToFilter) {
   });
   return selectedRecipesByAppliances;
 }
+
+//Elle filtre les recettes par les ustensiles sélectionnés
 
 function filterRecipesByUstensils(recipesToFilter) {
   //Filtre les recettes filtrées par appareils, selon les ustensiles choisis
@@ -419,6 +440,8 @@ function filterRecipesByUstensils(recipesToFilter) {
   return selectedRecipesByUstensils;
 }
 
+//Elle prend un tableau d'objets, boucle sur chaque objet, puis boucle sur chaque objet tableau d'ingrédients, puis pousse chaque ingrédient dans un nouveau tableau, puis supprime les doublons, puis trie* le tableau, puis passe le tableau à une autre fonction.
+
 function displayIngredientsList(listToFilter) {
   let newIngredientsArray = [];
 
@@ -432,6 +455,8 @@ function displayIngredientsList(listToFilter) {
   creatListIngredients(newIngredientsArray);
 }
 
+//Il prend un tableau d'objets, boucle sur chaque objet et pousse la valeur de la clé "appliance" dans un nouveau tableau. Ensuite, il supprime les doublons et trie le tableau.
+
 function displayAppliancesList(listToFilter) {
   let newAppliancesArray = [];
 
@@ -441,6 +466,7 @@ function displayAppliancesList(listToFilter) {
   });
   creatListAppliances(newAppliancesArray);
 }
+ //Il prend un tableau d'objets, boucle à travers chaque objet, puis boucle à travers le tableau de chaque objet ustensiles, puis pousse chaque ustensile vers un nouveau tableau, puis supprime les doublons, puis trie le tableau,puis passe le tableau à une autre fonction.
 
 function displayUstensilsList(listToFilter) {
   let newUstensilsArray = [];
@@ -455,9 +481,12 @@ function displayUstensilsList(listToFilter) {
   creatListUstensils(newUstensilsArray);
 }
 
+//filtres par input
 ingredientsFilter.addEventListener("input", ingredientInputFilter);
 appliancesFilter.addEventListener("input", applianceInputFilter);
 ustensilsFilter.addEventListener("input", ustensilInputFilter);
+
+//Si la valeur d'entrée n'est pas incluse dans l'élément de la liste, masque l'élément de la liste, sinon affiche l'élément de la liste
 
 function ingredientInputFilter(e) {
   const inputValue = e.target.value.toLowerCase();
@@ -474,6 +503,7 @@ function ingredientInputFilter(e) {
   }
 }
 
+//Si la valeur d'entrée n'est pas incluse dans l'élément de la liste, masque l'élément de la liste, sinon affiche l'élément de la liste
 function applianceInputFilter(e) {
   const inputValue = e.target.value.toLowerCase();
   // console.log(inputValue);
@@ -488,6 +518,7 @@ function applianceInputFilter(e) {
   }
 }
 
+//Si la valeur d'entrée n'est pas incluse dans l'élément de la liste, masque l'élément de la liste, sinon affiche l'élément de la liste
 function ustensilInputFilter(e) {
   const inputValue = e.target.value.toLowerCase();
   // console.log(inputValue);
@@ -501,8 +532,12 @@ function ustensilInputFilter(e) {
     }
   }
 }
+
+//recherche principale
 principalSearch.addEventListener("input", principalFilter);
 
+//Elle filtre un tableau d'objets en fonction de la valeur d'une entrée de recherche
+//recipesToFilter - un tableau d'objets, chaque objet est une recette
 function principalRecipesFilter(recipesToFilter) {
   let selectedRecipesBySearch = [];
   recipesToFilter.filter((recipe) => {
@@ -527,16 +562,17 @@ function principalRecipesFilter(recipesToFilter) {
     }
   });
 
-  return selectedRecipesBySearch;
+  return selectedRecipesBySearch;//return Un tableau d'objets.
 }
 
+//Elle filtre le recipesArray en fonction de la valeur du champ d'entrée
 function principalFilter(e) {
   principalRecipeSearchValue = e.target.value.toLowerCase().replace(/\s/g, "");
   // console.log(principalRecipeSearchValue);
 
   if (principalRecipeSearchValue.length > 2) {
     selectedRecipes = principalRecipesFilter(recipesArray);
-
+//si champs vide alors message d'erreur
     if (selectedRecipes.length == 0) {
       allListIngredients.innerHTML = "";
       allListAppliances.innerHTML = "";

@@ -20,7 +20,7 @@ class CreatListIngredients {
 
     return allListIngredients;
   }
-}//console.log(CreatListIngredients);
+} //console.log(CreatListIngredients);
 
 class CreatListAppliances {
   constructor(appliance) {
@@ -43,7 +43,7 @@ class CreatListAppliances {
 
     return allListAppliances;
   }
-}//console.log(CreatListAppliances);
+} //console.log(CreatListAppliances);
 
 class CreatListUstensils {
   constructor(ustensil) {
@@ -66,4 +66,4 @@ class CreatListUstensils {
 
     return allListUstensils;
   }
-}//console.log(CreatListUstensils);
+} //console.log(CreatListUstensils);

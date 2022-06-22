@@ -28,7 +28,7 @@
 }
 
 body {
-  margin: 0;
+  margin: 0 22px 0 22px;  
   font-family: var(--body-font-family);
   font-size: var(--body-font-size);
   color: var(--text-color-body);
@@ -51,6 +51,8 @@ body {
   font-family: var(--bg-color-zone-recherche);
   font-weight: 400;
   background-color: var(--bg-color-zone-recherche);
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #loupe {
@@ -104,6 +106,7 @@ input {
 .recipe ul {
   list-style-type: none;
   font-size: var(--text-recettes-font-size);
+  padding-left: 0;
 }
 
 .list-items {
@@ -117,6 +120,7 @@ input {
   width: 667px;
   column-count: 3;
   overflow-y: auto;
+  text-overflow: ellipsis;
 }
 
 .form-group {
@@ -155,4 +159,17 @@ h2 {
 
 .card-text {
   font-size: var(--text-recettes-font-size);
+  text-overflow: ellipsis;
+  height: 110px;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 6;
+  font-weight: 400;
+  -webkit-box-orient: vertical;
+  font-family: var(--text-font-description);
+}
+
+span img{
+  position: relative;
+  bottom: 3px;
 }
