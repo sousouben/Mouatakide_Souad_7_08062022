@@ -74,6 +74,7 @@ body {
 #appliances-filter,
 #ustensils-filter {
   width: 170px;
+  color: white;
 }
 
 #ingredients-filter::placeholder,

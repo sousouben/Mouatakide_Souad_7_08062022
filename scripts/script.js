@@ -356,7 +356,6 @@ function removeItemFromObjectList(target_list, item_name) {
     result = item.innerHTML === item_name;
     if (result) {
       item_to_remove = item;
-
       break;
     }
   }
@@ -370,10 +369,12 @@ function removeItemFromObjectList(target_list, item_name) {
   }
   return target_list;
 }
+
 //supprimer item_name de la liste
 //Elle prend une liste et un nom d'élément, et renvoie la liste avec l'élément supprimé
 //target_list - la liste dont on souhaite supprimer l'élément
 //item_name - Le nom de l'élément qu'on souhaite supprimer de la liste.
+
 function removeItemFromList(target_list, item_name) {
   let index = target_list.indexOf(item_name.toLowerCase().replace(/\s/g, ""));
   //console.log(index);
