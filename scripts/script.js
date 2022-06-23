@@ -589,35 +589,6 @@ function principalFilter(e) {
 
 /*
 Pour le test jsbench.me
-je vais tester la barre de recherche principale avec filter:
 
-function principalRecipesFilter(recipesToFilter) {
-  let selectedRecipesBySearch = [];
-  recipesToFilter.filter((recipe) => {
-    if (
-      recipe.name
-        .toLowerCase()
-        .replace(/\s/g, "")
-        .includes(principalRecipeSearchValue) ||
-      recipe.description
-        .toLowerCase()
-        .replace(/\s/g, "")
-        .includes(principalRecipeSearchValue) ||
-      recipe.ingredients.find((elt) =>
-        elt.ingredient
-          .toLowerCase()
-          .replace(/\s/g, "")
-          .includes(principalRecipeSearchValue)
-      )
-    ) {
-      selectedRecipesBySearch.push(recipe);
-      selectedRecipesBySearch = [...new Set(selectedRecipesBySearch)];
-    }
-  });
-
-  return selectedRecipesBySearch;//return Un tableau d'objets.
-}
-
-test avec for:
 
 */
