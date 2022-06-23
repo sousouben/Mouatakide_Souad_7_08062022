@@ -107,6 +107,8 @@ input {
   list-style-type: none;
   font-size: var(--text-recettes-font-size);
   padding-left: 0;
+  overflow: auto;
+  height: 110px;
 }
 
 .list-items {
@@ -162,7 +164,7 @@ h2 {
   text-overflow: ellipsis;
   height: 110px;
   display: -webkit-box;
-  overflow: hidden;
+  overflow: auto;
   -webkit-line-clamp: 6;
   font-weight: 400;
   -webkit-box-orient: vertical;
@@ -173,3 +175,16 @@ span img{
   position: relative;
   bottom: 3px;
 }
+
+/*******************TAG*********************/
+
+#close{
+  position: relative;
+  left: 30px;
+}
+
+.selectedTag{
+  color: white;
+  margin-left: 13px;
+}
+

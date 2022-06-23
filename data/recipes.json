@@ -21,11 +21,12 @@
             },
             {
                 "ingredient" : "Sucre",
-                "quantite" : 30,
+                "quantity" : 30,
                 "unit" : "grammes"
             },
             {
-                "ingredient": "Glaçons"
+                "ingredient": "Glaçons",
+                "quantity" : 10
             }
         ],
         "time": 10,
@@ -53,7 +54,7 @@
             },
             {
                 "ingredient" : "Carotte",
-                "quantite" : 1
+                "quantity" : 1
             },
             {
                 "ingredient" : "Citron Vert",
@@ -313,13 +314,18 @@
                 "unit": "grammes"
             },
             {
-                "ingredient": "Vinaigre Balsamic"
+                "ingredient": "Vinaigre Balsamic",
+                "quantity": 1,
+                "unit": "Cuillère à soupe"            
             },
             {
-                "ingredient": "Huile d'olive"
+                "ingredient": "Huile d'olive",
+                "quantity": 1,
+                "unit": "Cuillère à soupe"
             }, 
             {
-                "ingredient": "Basilic"    
+                "ingredient": "Basilic",
+                "quantity": 1
             }
         ],
         "time": 15,
@@ -1015,10 +1021,14 @@
                 "quantity": 2
             },
             {
-                "ingredient": "Huile d'olive"
+                "ingredient": "Huile d'olive",
+                "quantity": 1,
+                "unit": "Cuillère à soupe"
             },
             {
-                "ingredient": "Paprika"
+                "ingredient": "Paprika",
+                "quantity": 1,
+                "unit": "Cuillère à café"
             }
         ],
         "time": 30,
@@ -1177,7 +1187,9 @@
                 "unit": "cl"
             },
             {
-                "ingredient": "Huile d'olive"
+                "ingredient": "Huile d'olive",
+                "quantity": 1,
+                "unit": "cuillère à soupe"
             },
             {
                 "ingredient": "Orange",
@@ -1476,7 +1488,8 @@
                 "quantity": 3
             },
             {
-                "ingredient": "Citron"
+                "ingredient": "Citron",
+                "quantity": 2
             }
         ],
         "time": 50,

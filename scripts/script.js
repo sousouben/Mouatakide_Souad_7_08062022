@@ -303,7 +303,7 @@ function createTag() {
     return tagLi;
   });
 }
- //Elle supprime la balise du DOM, puis supprime la balise de la liste des balises sélectionnées.
+//Elle supprime la balise du DOM, puis supprime la balise de la liste des balises sélectionnées.
 
 function closeTag(e) {
   let element = e.target;
@@ -370,10 +370,10 @@ function removeItemFromObjectList(target_list, item_name) {
   }
   return target_list;
 }
- //supprimer item_name de la liste
- //Elle prend une liste et un nom d'élément, et renvoie la liste avec l'élément supprimé
- //target_list - la liste dont on souhaite supprimer l'élément
- //item_name - Le nom de l'élément qu'on souhaite supprimer de la liste.
+//supprimer item_name de la liste
+//Elle prend une liste et un nom d'élément, et renvoie la liste avec l'élément supprimé
+//target_list - la liste dont on souhaite supprimer l'élément
+//item_name - Le nom de l'élément qu'on souhaite supprimer de la liste.
 function removeItemFromList(target_list, item_name) {
   let index = target_list.indexOf(item_name.toLowerCase().replace(/\s/g, ""));
   //console.log(index);
@@ -466,7 +466,7 @@ function displayAppliancesList(listToFilter) {
   });
   creatListAppliances(newAppliancesArray);
 }
- //Il prend un tableau d'objets, boucle à travers chaque objet, puis boucle à travers le tableau de chaque objet ustensiles, puis pousse chaque ustensile vers un nouveau tableau, puis supprime les doublons, puis trie le tableau,puis passe le tableau à une autre fonction.
+//Il prend un tableau d'objets, boucle à travers chaque objet, puis boucle à travers le tableau de chaque objet ustensiles, puis pousse chaque ustensile vers un nouveau tableau, puis supprime les doublons, puis trie le tableau,puis passe le tableau à une autre fonction.
 
 function displayUstensilsList(listToFilter) {
   let newUstensilsArray = [];
@@ -562,7 +562,7 @@ function principalRecipesFilter(recipesToFilter) {
     }
   });
 
-  return selectedRecipesBySearch;//return Un tableau d'objets.
+  return selectedRecipesBySearch; //return Un tableau d'objets.
 }
 
 //Elle filtre le recipesArray en fonction de la valeur du champ d'entrée
@@ -570,10 +570,10 @@ function principalFilter(e) {
   principalRecipeSearchValue = e.target.value.toLowerCase().replace(/\s/g, "");
   // console.log(principalRecipeSearchValue);
 
-  if (principalRecipeSearchValue.length > 2) {
+  if (principalRecipeSearchValue.length >= 3) {
     selectedRecipes = principalRecipesFilter(recipesArray);
-//si champs vide alors message d'erreur
-    if (selectedRecipes.length == 0) {
+    //si il n'y a aucune correspondance alors message d'erreur
+    if (!selectedRecipes.length) {
       allListIngredients.innerHTML = "";
       allListAppliances.innerHTML = "";
       allListUstensils.innerHTML = "";
@@ -585,3 +585,38 @@ function principalFilter(e) {
     init(selectedRecipes);
   }
 }
+
+/*
+Pour le test jsbench.me
+je vais tester la barre de recherche principale avec filter:
+
+function principalRecipesFilter(recipesToFilter) {
+  let selectedRecipesBySearch = [];
+  recipesToFilter.filter((recipe) => {
+    if (
+      recipe.name
+        .toLowerCase()
+        .replace(/\s/g, "")
+        .includes(principalRecipeSearchValue) ||
+      recipe.description
+        .toLowerCase()
+        .replace(/\s/g, "")
+        .includes(principalRecipeSearchValue) ||
+      recipe.ingredients.find((elt) =>
+        elt.ingredient
+          .toLowerCase()
+          .replace(/\s/g, "")
+          .includes(principalRecipeSearchValue)
+      )
+    ) {
+      selectedRecipesBySearch.push(recipe);
+      selectedRecipesBySearch = [...new Set(selectedRecipesBySearch)];
+    }
+  });
+
+  return selectedRecipesBySearch;//return Un tableau d'objets.
+}
+
+test avec for:
+
+*/
