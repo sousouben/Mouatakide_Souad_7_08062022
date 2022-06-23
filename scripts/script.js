@@ -590,5 +590,39 @@ function principalFilter(e) {
 /*
 Pour le test jsbench.me
 
+boucle for dans branche algoFor
 
+function principalRecipesFilter(recipesToFilter) {
+  let selectedRecipesBySearch = [];
+
+  for (let recipe of recipesToFilter) {
+    for (let i = 0; i < recipe.ingredients.length; i++) {
+      const ingredientName = recipe.ingredients[i].ingredient
+        .toLowerCase()
+        .replace(/\s/g, "");
+      //console.log(ingredientName);
+      if (ingredientName.includes(principalRecipeSearchValue)) {
+        selectedRecipesBySearch.push(recipe);
+        selectedRecipesBySearch = [...new Set(selectedRecipesBySearch)];
+      }
+    }
+
+    if (
+      recipe.name
+        .toLowerCase()
+        .replace(/\s/g, "")
+        .includes(principalRecipeSearchValue) ||
+      recipe.description
+        .toLowerCase()
+        .replace(/\s/g, "")
+        .includes(principalRecipeSearchValue)
+    ) {
+      selectedRecipesBySearch.push(recipe);
+      selectedRecipesBySearch = [...new Set(selectedRecipesBySearch)];
+      console.log(selectedRecipesBySearch);
+    }
+  }
+
+  return selectedRecipesBySearch;
+}
 */
