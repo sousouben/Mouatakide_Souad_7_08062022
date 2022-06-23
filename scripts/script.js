@@ -536,11 +536,23 @@ function ustensilInputFilter(e) {
 //recherche principale
 principalSearch.addEventListener("input", principalFilter);
 
-//Elle filtre un tableau d'objets en fonction de la valeur d'une entrée de recherche
+//eLLE filtre un tableau d'objets en fonction de la valeur d'une entrée de recherche
 //recipesToFilter - un tableau d'objets, chaque objet est une recette
 function principalRecipesFilter(recipesToFilter) {
   let selectedRecipesBySearch = [];
-  recipesToFilter.filter((recipe) => {
+
+  for (let recipe of recipesToFilter) {
+    for (let i = 0; i < recipe.ingredients.length; i++) {
+      const ingredientName = recipe.ingredients[i].ingredient
+        .toLowerCase()
+        .replace(/\s/g, "");
+      //console.log(ingredientName);
+      if (ingredientName.includes(principalRecipeSearchValue)) {
+        selectedRecipesBySearch.push(recipe);
+        selectedRecipesBySearch = [...new Set(selectedRecipesBySearch)];
+      }
+    }
+
     if (
       recipe.name
         .toLowerCase()
@@ -549,21 +561,17 @@ function principalRecipesFilter(recipesToFilter) {
       recipe.description
         .toLowerCase()
         .replace(/\s/g, "")
-        .includes(principalRecipeSearchValue) ||
-      recipe.ingredients.find((elt) =>
-        elt.ingredient
-          .toLowerCase()
-          .replace(/\s/g, "")
-          .includes(principalRecipeSearchValue)
-      )
+        .includes(principalRecipeSearchValue)
     ) {
       selectedRecipesBySearch.push(recipe);
       selectedRecipesBySearch = [...new Set(selectedRecipesBySearch)];
+      console.log(selectedRecipesBySearch);
     }
-  });
+  }
 
-  return selectedRecipesBySearch; //return Un tableau d'objets.
+  return selectedRecipesBySearch;
 }
+
 
 //Elle filtre le recipesArray en fonction de la valeur du champ d'entrée
 function principalFilter(e) {
@@ -587,7 +595,7 @@ function principalFilter(e) {
 }
 
 /*
-Pour le test jsbench.me
+Dans branche main boucle filter
 je vais tester la barre de recherche principale avec filter:
 
 function principalRecipesFilter(recipesToFilter) {
@@ -616,7 +624,4 @@ function principalRecipesFilter(recipesToFilter) {
 
   return selectedRecipesBySearch;//return Un tableau d'objets.
 }
-
-test avec for:
-
 */
