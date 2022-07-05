@@ -14,7 +14,7 @@ Rien à installer ici, il suffit d'ouvrir le fichier index.html.
 
 Branche main:Programmation fonctionnelle avec la methode Filter
 
-Branche algoFor : Programmation native avec la methode For
+Branche Dev : Programmation native avec la methode For
 
 teste algorithme avec jsbench.me
 
