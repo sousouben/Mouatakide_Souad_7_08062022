@@ -587,7 +587,7 @@ function principalFilter(e) {
       allListAppliances.innerHTML = "";
       allListUstensils.innerHTML = "";
       recipesContainer.innerHTML =
-        "<p id='error' class='text-danger text-center'> Veuillez entrer un nom de recette, un ingredient, un appareil ou un ustensile de cuisine</p>";
+        "<p id='error' class='text-danger text-center'> Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.</p>";
     } else init(selectedRecipes);
   } else {
     selectedRecipes = recipesArray;
