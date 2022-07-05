@@ -12,7 +12,7 @@ Rien à installer ici, il suffit d'ouvrir le fichier index.html.
 
 ####Algorithmes
 
-Branche master:Programmation fonctionnelle avec la methode Filter
+Branche main:Programmation fonctionnelle avec la methode Filter
 
 Branche algoFor : Programmation native avec la methode For
 
