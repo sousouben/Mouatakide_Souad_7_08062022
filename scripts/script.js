@@ -155,7 +155,7 @@ const creatAllLists = async () => {
     });
   });
 
-  ingredientsArray = [...new Set(ingredientsArray)].sort();
+  ingredientsArray = [...new Set(ingredientsArray)].sort();//sort()trie les éléments d'un tableau, dans ce même tableau, et renvoie le tableau
   appliancesArray = [...new Set(appliancesArray)].sort();
   ustensilsArray = [...new Set(ustensilsArray)].sort();
 
