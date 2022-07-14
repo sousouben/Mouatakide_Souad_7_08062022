@@ -123,7 +123,7 @@ async function getRecipes() {
   const { recipes } = await res.json();
   recipesArray = recipes;
   recipesArray = [...recipes];
-  console.log(recipesArray.length); //permet de parcourir le tableau et de connaitre le nombre de recettes (50 recettes)
+  //console.log(recipesArray.length); //permet de parcourir le tableau et de connaitre le nombre de recettes (50 recettes)
 
   createRecipesList(recipes);
 }
@@ -148,7 +148,7 @@ const creatAllLists = async () => {
       //console.log(ingredientsArray);
     });
     appliancesArray.push(recipe.appliance);
-    console.log(appliancesArray);
+    //console.log(appliancesArray);
     recipe.ustensils.map((element) => {
       ustensilsArray.push(element);
       //console.log(ustensilsArray);
@@ -183,11 +183,11 @@ function creatListIngredients(ingredients) {
     item.addEventListener("click", () => {
       if (!inSelectedTags(item.dataset.item)) {
         selectedIngredients.push(
-          item.dataset.item.toLowerCase().replace(/\s/g, "")
-        );
-        selectedTags.push(item); // empeche l'affichage en double du tag
+          item.dataset.item.toLowerCase().replace(/\s/g, "")          
+        );        
+        selectedTags.push(item); 
       }
-
+      
       masqueList(allListIngredients, ingredientsFilter, ingredientsChevron);
       ingredientsFilter.value = "";
       init(recipesArray);
@@ -206,7 +206,7 @@ function creatListAppliances(appliances) {
   });
   appliancesArray = Array.from(document.querySelectorAll(".appliance-item"));
   appliancesArray = [...new Set(appliancesArray)].sort();
-  console.log(appliancesArray);
+  //console.log(appliancesArray);
 
   appliancesArray.forEach((item) => {
     item.addEventListener("click", () => {
@@ -235,7 +235,7 @@ function creatListUstensils(ustensils) {
   });
   ustensilsArray = Array.from(document.querySelectorAll(".ustensil-item"));
   ustensilsArray = [...new Set(ustensilsArray)].sort();
-  console.log(ustensilsArray);
+  //console.log(ustensilsArray);
 
   ustensilsArray.forEach((item) => {
     item.addEventListener("click", () => {
@@ -337,7 +337,7 @@ function closeTag(e) {
       );
       break;
     default:
-      console.log(`type not found ${expr}.`);
+      //console.log(`type not found ${expr}.`);
   }
 
   init(recipesArray);
@@ -487,6 +487,7 @@ ingredientsFilter.addEventListener("input", ingredientInputFilter);
 appliancesFilter.addEventListener("input", applianceInputFilter);
 ustensilsFilter.addEventListener("input", ustensilInputFilter);
 
+//recherche sur linput ingredient
 //Si la valeur d'entrée n'est pas incluse dans l'élément de la liste, masque l'élément de la liste, sinon affiche l'élément de la liste
 
 function ingredientInputFilter(e) {
@@ -504,6 +505,7 @@ function ingredientInputFilter(e) {
   }
 }
 
+//recherche sur linput appareil
 //Si la valeur d'entrée n'est pas incluse dans l'élément de la liste, masque l'élément de la liste, sinon affiche l'élément de la liste
 function applianceInputFilter(e) {
   const inputValue = e.target.value.toLowerCase();
@@ -519,6 +521,7 @@ function applianceInputFilter(e) {
   }
 }
 
+//recherche sur linput ustensile
 //Si la valeur d'entrée n'est pas incluse dans l'élément de la liste, masque l'élément de la liste, sinon affiche l'élément de la liste
 function ustensilInputFilter(e) {
   const inputValue = e.target.value.toLowerCase();
@@ -535,7 +538,7 @@ function ustensilInputFilter(e) {
 }
 
 //recherche principale
-console.time("timer");
+//console.time("timer");
 principalSearch.addEventListener("input", principalFilter);
 
 //Elle filtre un tableau d'objets en fonction de la valeur d'une entrée de recherche
@@ -587,7 +590,7 @@ function principalFilter(e) {
     init(selectedRecipes);
   }
 }
-console.timeEnd("timer");
+//console.timeEnd("timer");
 
 /*
 Pour le test jsbench.me

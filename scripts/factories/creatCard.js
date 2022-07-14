@@ -12,7 +12,7 @@ class RecipesCard {
 
   buildCard() {
     const card = document.createElement("article");
-    console.log(card);
+    //console.log(card);
     let photo = "";
     photo = this.name.toLowerCase().replace(/\s/g, "");
 
