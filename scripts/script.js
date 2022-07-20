@@ -122,8 +122,29 @@ async function getRecipes() {
   const res = await fetch("data/recipes.json");
   const { recipes } = await res.json();
   recipesArray = recipes;
-  recipesArray = [...recipes];
-  //console.log(recipesArray.length); //permet de parcourir le tableau et de connaitre le nombre de recettes (50 recettes)
+  recipesArray = [
+    ...recipes,
+    ...recipes,
+    ...recipes,
+    ...recipes,
+    ...recipes,
+    ...recipes,
+    ...recipes,
+    ...recipes,
+    ...recipes,
+    ...recipes,
+    ...recipes,
+    ...recipes,
+    ...recipes,
+    ...recipes,
+    ...recipes,
+    ...recipes,
+    ...recipes,
+    ...recipes,
+    ...recipes,
+    ...recipes,
+  ];
+  console.log(recipesArray.length); //permet de parcourir le tableau et de connaitre le nombre de recettes 
 
   createRecipesList(recipes);
 }
@@ -595,39 +616,34 @@ function principalFilter(e) {
 /*
 Pour le test jsbench.me
 
-boucle for dans branche algoFor
-
-function principalRecipesFilter(recipesToFilter) {
-  let selectedRecipesBySearch = [];
-
-  for (let recipe of recipesToFilter) {
-    for (let i = 0; i < recipe.ingredients.length; i++) {
-      const ingredientName = recipe.ingredients[i].ingredient
-        .toLowerCase()
-        .replace(/\s/g, "");
-      //console.log(ingredientName);
-      if (ingredientName.includes(principalRecipeSearchValue)) {
-        selectedRecipesBySearch.push(recipe);
-        selectedRecipesBySearch = [...new Set(selectedRecipesBySearch)];
+principalSearch.addEventListener("input", principalFilter);
+function principalFilter(e) {
+  let inputValue = e.target.value.toLowerCase().replace(/\s/g, "");
+  if (inputValue.length >=3 ) {
+    let recipesChoice = [];
+    recipesArray.filter((recipe) => {
+      if (
+        recipe.name.toLowerCase().replace(/\s/g, "").includes(inputValue) ||
+        recipe.description
+          .toLowerCase()
+          .replace(/\s/g, "")
+          .includes(inputValue) ||
+        recipe.ingredients.find((elt) =>
+          elt.ingredient.toLowerCase().replace(/\s/g, "").includes(inputValue)
+        )
+      ) {
+        recipesChoice.push(recipe);
+        recipesChoice = [...new Set(recipesChoice)];
       }
+      //console.log(recipesChoice);
+      init(recipesChoice);
+    });
+    if (recipesChoice.length == 0) {
+      recipesContainer.innerHTML =
+        "<p id='error' class='text-danger text-center'> Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.</p>";
     }
-
-    if (
-      recipe.name
-        .toLowerCase()
-        .replace(/\s/g, "")
-        .includes(principalRecipeSearchValue) ||
-      recipe.description
-        .toLowerCase()
-        .replace(/\s/g, "")
-        .includes(principalRecipeSearchValue)
-    ) {
-      selectedRecipesBySearch.push(recipe);
-      selectedRecipesBySearch = [...new Set(selectedRecipesBySearch)];
-      console.log(selectedRecipesBySearch);
-    }
+  } else {
+    init(recipesArray);
   }
-
-  return selectedRecipesBySearch;
 }
 */
