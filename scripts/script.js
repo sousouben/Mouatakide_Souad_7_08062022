@@ -123,6 +123,7 @@ async function getRecipes() {
   const { recipes } = await res.json();
   recipesArray = recipes;
   recipesArray = [
+    ...recipes/*,
     ...recipes,
     ...recipes,
     ...recipes,
@@ -141,8 +142,7 @@ async function getRecipes() {
     ...recipes,
     ...recipes,
     ...recipes,
-    ...recipes,
-    ...recipes,
+    ...recipes,test pour 1000 recettes sur jsbench.me*/
   ];
   console.log(recipesArray.length); //permet de parcourir le tableau et de connaitre le nombre de recettes 
 
