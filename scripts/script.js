@@ -619,7 +619,7 @@ console.timeEnd("timer");
 
 /*
 pour test jsbench.me
-principalSearch.addEventListener("input", principalFilter);
+principalSearch.addEventListener("input", algoPrincipalFilter);
 function algoPrincipalFilter(e) {
   const inputValue = e.target.value.toLowerCase().replace(/\s/g, "");
   //console.log(inputValue);
