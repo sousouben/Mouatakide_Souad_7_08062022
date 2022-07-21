@@ -144,7 +144,7 @@ async function getRecipes() {
     ...recipes,
     ...recipes,test pour 1000 recettes sur jsbench.me*/
   ];
-  console.log(recipesArray.length); //permet de parcourir le tableau et de connaitre le nombre de recettes 
+  //console.log(recipesArray.length); //permet de parcourir le tableau et de connaitre le nombre de recettes 
 
   createRecipesList(recipes);
 }
