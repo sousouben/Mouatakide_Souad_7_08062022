@@ -190,8 +190,11 @@ creatAllLists();
 
 //Elle crée une liste d'ingrédients à partir d'un tableau d'ingrédients.
 function creatListIngredients(ingredients) {
+  let ingredientsFiltered = ingredients.filter(
+    (item) => !selectedIngredients.includes(item.toLowerCase())
+  );
   allListIngredients.innerHTML = "";
-  ingredients.forEach((ingredient) => {
+  ingredientsFiltered.forEach((ingredient) => {
     allListIngredients.appendChild(
       new CreatListIngredients(ingredient).buildListIngredients()
     );
@@ -219,8 +222,11 @@ function creatListIngredients(ingredients) {
 //Elle crée une liste d'appareils, et lorsque vous cliquez sur l'un d'eux, elle l'ajoute à un tableau d'appareils
 
 function creatListAppliances(appliances) {
+  let appliancesFiltered = appliances.filter(
+    (item) => !selectedAppliances.includes(item.toLowerCase())
+  );  
   allListAppliances.innerHTML = "";
-  appliances.forEach((appliance) => {
+  appliancesFiltered.forEach((appliance) => {
     allListAppliances.appendChild(
       new CreatListAppliances(appliance).buildListAppliance()
     );
@@ -248,8 +254,11 @@ function creatListAppliances(appliances) {
 //elle crée une liste d'ustensiles, et lorsque vous cliquez sur l'un d'eux, elle l'ajoute à un Tableau d'ustensiles.
 
 function creatListUstensils(ustensils) {
+  let ustensilsFiltered = ustensils.filter(
+    (item) => !selectedUstensils.includes(item.toLowerCase())
+  );
   allListUstensils.innerHTML = "";
-  ustensils.forEach((ustensil) => {
+  ustensilsFiltered.forEach((ustensil) => {
     allListUstensils.appendChild(
       new CreatListUstensils(ustensil).buildListUstensil()
     );
