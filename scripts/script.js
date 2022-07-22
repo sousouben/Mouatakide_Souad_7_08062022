@@ -564,7 +564,7 @@ function ustensilInputFilter(e) {
 }
 
 //recherche principale
-console.time("timer");
+console.time("timerFor");
 principalSearch.addEventListener("input", principalFilter);
 
 //eLLE filtre un tableau d'objets en fonction de la valeur d'une entrée de recherche
@@ -624,7 +624,7 @@ function principalFilter(e) {
     init(selectedRecipes);
   }
 }
-console.timeEnd("timer");
+console.timeEnd("timerFor");
 
 /*
 pour test jsbench.me
