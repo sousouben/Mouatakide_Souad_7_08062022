@@ -123,7 +123,7 @@ async function getRecipes() {
   const { recipes } = await res.json();
   recipesArray = recipes;
   recipesArray = [
-    ...recipes/*,
+    ...recipes /*,
     ...recipes,
     ...recipes,
     ...recipes,
@@ -142,9 +142,9 @@ async function getRecipes() {
     ...recipes,
     ...recipes,
     ...recipes,
-    ...recipes,test pour 1000 recettes sur jsbench.me*/
+    ...recipes,test pour 1000 recettes sur jsbench.me*/,
   ];
-  //console.log(recipesArray.length); //permet de parcourir le tableau et de connaitre le nombre de recettes 
+  //console.log(recipesArray.length); //permet de parcourir le tableau et de connaitre le nombre de recettes
 
   createRecipesList(recipes);
 }
@@ -176,7 +176,7 @@ const creatAllLists = async () => {
     });
   });
 
-  ingredientsArray = [...new Set(ingredientsArray)].sort();//sort()trie les éléments d'un tableau, dans ce même tableau, et renvoie le tableau
+  ingredientsArray = [...new Set(ingredientsArray)].sort(); //sort()trie les éléments d'un tableau, dans ce même tableau, et renvoie le tableau
   appliancesArray = [...new Set(appliancesArray)].sort();
   ustensilsArray = [...new Set(ustensilsArray)].sort();
 
@@ -207,11 +207,11 @@ function creatListIngredients(ingredients) {
     item.addEventListener("click", () => {
       if (!inSelectedTags(item.dataset.item)) {
         selectedIngredients.push(
-          item.dataset.item.toLowerCase().replace(/\s/g, "")          
-        );        
-        selectedTags.push(item); 
+          item.dataset.item.toLowerCase().replace(/\s/g, "")
+        );
+        selectedTags.push(item);
       }
-      
+
       masqueList(allListIngredients, ingredientsFilter, ingredientsChevron);
       ingredientsFilter.value = "";
       init(recipesArray);
@@ -224,7 +224,7 @@ function creatListIngredients(ingredients) {
 function creatListAppliances(appliances) {
   let appliancesFiltered = appliances.filter(
     (item) => !selectedAppliances.includes(item.toLowerCase())
-  );  
+  );
   allListAppliances.innerHTML = "";
   appliancesFiltered.forEach((appliance) => {
     allListAppliances.appendChild(
@@ -367,7 +367,7 @@ function closeTag(e) {
       );
       break;
     default:
-      //console.log(`type not found ${expr}.`);
+      console.log(`type not found ${expr}.`);
   }
 
   init(recipesArray);
