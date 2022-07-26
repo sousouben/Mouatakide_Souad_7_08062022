@@ -144,7 +144,7 @@ async function getRecipes() {
     ...recipes,
     ...recipes, test pour 1000 recettes sur jsbench.me*/
   ];
-  console.log(recipesArray.length); //permet de parcourir le tableau et de connaitre le nombre de recettes 
+  //console.log(recipesArray.length); //permet de parcourir le tableau et de connaitre le nombre de recettes 
 
   createRecipesList(recipes);
 }
@@ -169,7 +169,7 @@ const creatAllLists = async () => {
       //console.log(ingredientsArray);
     });
     appliancesArray.push(recipe.appliance);
-    console.log(appliancesArray);
+    //console.log(appliancesArray);
     recipe.ustensils.map((element) => {
       ustensilsArray.push(element);
       //console.log(ustensilsArray);
@@ -367,7 +367,7 @@ function closeTag(e) {
       );
       break;
     default:
-      console.log(`type not found ${expr}.`);
+      //console.log(`type not found ${expr}.`);
   }
 
   init(recipesArray);
@@ -596,7 +596,7 @@ function principalRecipesFilter(recipesToFilter) {
     ) {
       selectedRecipesBySearch.push(recipe);
       selectedRecipesBySearch = [...new Set(selectedRecipesBySearch)];
-      console.log(selectedRecipesBySearch);
+      //console.log(selectedRecipesBySearch);
     }
   }
 
