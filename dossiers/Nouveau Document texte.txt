@@ -1,0 +1,5 @@
+ fichier JavaScript contenant un tableau JSON de 50 recettes
+https://github.com/OpenClassrooms-Student-Center/PetitsPlats2.0.git
+
+ la maquette de la page sur Figma 
+https://www.figma.com/file/LY5VQTAqnrAf0bWObOBrt8/Les-petits-plats---Maquette-2.0?type=design&mode=design
